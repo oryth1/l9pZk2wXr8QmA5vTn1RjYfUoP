@@ -44,7 +44,7 @@ local gameId = game.PlaceId
 
 if gameId == 2753915549 then -- Blox Fruits
     local BloxFruits = Janela:MakeTab({
-        Name = "Frutas Blox",
+        Name = "Blox Fruits",
         Icon = "rbxassetid://11348590078",
         PremiumOnly = false
     })
