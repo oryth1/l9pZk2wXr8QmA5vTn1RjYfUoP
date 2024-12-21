@@ -6,7 +6,7 @@ local Janela = OrionLib:MakeWindow({
     HidePremium = false,
     SaveConfig = true,
     ConfigFolder = "OrythHub",
-    IntroText = " </> Oryth Hub",
+    IntroText = "Oryth Hub...",
     IntroIcon = "rbxassetid://73200509058998"
 })
 
@@ -34,7 +34,7 @@ local PainelTab = Janela:MakeTab({
 -- Adicionar scripts (painel)
 AddScriptButton(PainelTab, "</> Aimbot Universal", "https://raw.githubusercontent.com/Yousuck780/troll-x/main/ahhhh")
 AddScriptButton(PainelTab, "</> Gráficos Realistas", "https://raw.githubusercontent.com/Flybobbb/robloxscripts/main/rtx.lua")
-AddScriptButton(PainelTab, "</> Rendimento infinito", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
+AddScriptButton(PainelTab, "</> Infinite Yield", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
 AddScriptButton(PainelTab, "</> Remover Texturas", "https://rawscripts.net/raw/Universal-Script-antilag-15462")
 AddScriptButton(PainelTab, "</> Servidor Privado", "https://pastebin.com/raw/A4r1pHJY")
 AddScriptButton(PainelTab, "</> TP Tools", "https://pastebin.com/raw/7pQFmXUv")
