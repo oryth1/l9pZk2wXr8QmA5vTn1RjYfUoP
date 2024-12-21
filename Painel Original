@@ -6,7 +6,7 @@ local Janela = OrionLib:MakeWindow({
     HidePremium = false,
     SaveConfig = true,
     ConfigFolder = "OrythHub",
-    IntroText = "Oryth Hub...",
+    IntroText = "Carregando...",
     IntroIcon = "rbxassetid://73200509058998"
 })
 
