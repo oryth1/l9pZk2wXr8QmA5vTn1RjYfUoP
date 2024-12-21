@@ -1,0 +1,78 @@
+local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Orion/main/source'))()
+local Player = game.Players.LocalPlayer
+
+local Janela = OrionLib:MakeWindow({
+    Name = "Oryth Hub | Universal BR",
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "OrythHub",
+    IntroText = " </> Oryth Hub",
+    IntroIcon = "rbxassetid://73200509058998"
+})
+
+-- Função Auxiliar para Adicionar Botões
+local function AddScriptButton(guia, nome, url)
+    guia:AddButton({
+        Name = nome,
+        Callback = function()
+            local ChatService = game:GetService("Chat")
+            if Player.Character and Player.Character:FindFirstChild("Head") then
+                ChatService:Chat(Player.Character.Head, "Executando...", Enum.ChatColor.White)
+            end
+            loadstring(game:HttpGet(url))()
+        end
+    })
+end
+
+-- [ Aba: Painel ]
+local PainelTab = Janela:MakeTab({
+    Name = "Painel",
+    Icon = "rbxassetid://11819163504",
+    PremiumOnly = false
+})
+
+-- Adicionar scripts (painel)
+AddScriptButton(PainelTab, "</> Aimbot Universal", "https://raw.githubusercontent.com/Yousuck780/troll-x/main/ahhhh")
+AddScriptButton(PainelTab, "</> Gráficos Realistas", "https://raw.githubusercontent.com/Flybobbb/robloxscripts/main/rtx.lua")
+AddScriptButton(PainelTab, "</> Rendimento infinito", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
+AddScriptButton(PainelTab, "</> Remover Texturas", "https://rawscripts.net/raw/Universal-Script-antilag-15462")
+AddScriptButton(PainelTab, "</> Servidor Privado", "https://pastebin.com/raw/A4r1pHJY")
+AddScriptButton(PainelTab, "</> TP Tools", "https://pastebin.com/raw/7pQFmXUv")
+
+-- Verificar o jogo atual e carregar as abas específicas
+local gameId = game.PlaceId
+
+if gameId == 2753915549 then -- Blox Fruits
+    local BloxFruits = Janela:MakeTab({
+        Name = "Frutas Blox",
+        Icon = "rbxassetid://11348590078",
+        PremiumOnly = false
+    })
+    BloxFruits:AddLabel("Última atualização em 17/12/24")
+    AddScriptButton(BloxFruits, "Alchemy Hub", "https://scripts.alchemyhub.xyz")
+    AddScriptButton(BloxFruits, "Speed X Hub", "https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua")
+    AddScriptButton(BloxFruits, "Kncryptc Hub", "https://raw.githubusercontent.com/3345-catsus/Kncrypt/refs/heads/main/sources/BloxFruit.lua")
+    AddScriptButton(BloxFruits, "HOHO Hub", "https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI")
+    AddScriptButton(BloxFruits, "Thunder Z Hub", "https://raw.githubusercontent.com/ThundarZ/Welcome/refs/heads/main/Main/Loader/AllGame.lua")
+    AddScriptButton(BloxFruits, "Redz Hub", "https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua")
+    AddScriptButton(BloxFruits, "Xero Hub", "https://apixerohub.x10.mx/main.luarmor")
+    AddScriptButton(BloxFruits, "Raito Hub", "https://raw.githubusercontent.com/Efe0626/RaitoHub/refs/heads/main/Script")
+    AddScriptButton(BloxFruits, "Banana Hub", "https://raw.githubusercontent.com/obiiyeuem/vthangsitink/main/BananaHub.lua")
+elseif gameId == 18668065416 then -- Blue Lock Rivals
+    local BlueLockRivals = Janela:MakeTab({
+        Name = "Blue Lock Rivals",
+        Icon = "rbxassetid://11348590078",
+        PremiumOnly = false
+    })
+    BlueLockRivals:AddLabel("Última atualização em 15/12/2024")
+    AddScriptButton(BlueLockRivals, "Legend HandlesYT Hub", "https://raw.githubusercontent.com/LOLking123456/Lock/refs/heads/main/Blue")
+    AddScriptButton(BlueLockRivals, "NS Hub", "https://raw.githubusercontent.com/OhhMyGehlee/fo/refs/heads/main/ot")
+    AddScriptButton(BlueLockRivals, "Tora Isme Hub", "https://raw.githubusercontent.com/ToraScript/Script/main/BlueLock")
+    AddScriptButton(BlueLockRivals, "Hub Sendox", "https://api.luarmor.net/files/v3/loaders/2f4e30b1511c2c07bee1be782460a57a.lua")
+    AddScriptButton(BlueLockRivals, "Flow Hub", "https://pastebin.com/raw/D1M2PLua")
+    AddScriptButton(BlueLockRivals, "Arraste-me Hub", "https://gist.githubusercontent.com/Yopapa7/8f9c43ed1a16ba4dbb5464e169154e65/raw/bdc9d6f650c829f470b6c4c05e66fbc5f7efc92e/gistfile1.txt")
+    AddScriptButton(BlueLockRivals, "Rinns Hub", "https://raw.githubusercontent.com/SkibidiCen/MainMenu/main/Code")
+end
+
+-- Finalizar a inicialização
+OrionLib:Init()
