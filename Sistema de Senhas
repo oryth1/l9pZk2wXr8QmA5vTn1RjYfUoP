@@ -53,7 +53,7 @@ local ButtonConfirmKey = MainTab:CreateButton({
                 Image = 89862499325112,
             })
             wait(2)
-            loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'), true))()
+            loadstring(game:HttpGet(('https://raw.githubusercontent.com/oryth1/oryth1/refs/heads/main/Painel%20Original'), true))()
         else
             Rayfield:Notify({
                 Title = "Senha Inválida!",
