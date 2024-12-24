@@ -1,78 +1,142 @@
-local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/AlaaEmad23557/Neon-Hub-Lib/main/Lib'))()
-local Player = game.Players.LocalPlayer
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-local Janela = OrionLib:MakeWindow({
-    Name = "Oryth Hub | Universal BR",
-    HidePremium = false,
-    SaveConfig = true,
-    ConfigFolder = "OrythHub",
-    IntroText = "Carregando...",
-    IntroIcon = "rbxassetid://73200509058998"
+-- Configuração da interface
+local Window = Rayfield:CreateWindow({
+    Name = "Oryh Hub | Universal BR | Versão 1.0", 
+    LoadingTitle = "Carregando Oryh Hub",
+    LoadingSubtitle = "Por favor, aguarde..."
 })
 
--- Função Auxiliar para Adicionar Botões
-local function AddScriptButton(guia, nome, url)
-    guia:AddButton({
-        Name = nome,
+-- Função para adicionar botões com scripts
+local function AddScriptButton(tab, name, url)
+    tab:CreateButton({
+        Name = name,
         Callback = function()
-            local ChatService = game:GetService("Chat")
-            if Player.Character and Player.Character:FindFirstChild("Head") then
-                ChatService:Chat(Player.Character.Head, "Executando...", Enum.ChatColor.White)
-            end
             loadstring(game:HttpGet(url))()
+            Rayfield:Notify({
+                Title = "Oryh Hub",
+                Content = name .. " carregado com sucesso!",
+                Duration = 5
+            })
         end
     })
 end
 
--- [ Aba: Painel ]
-local PainelTab = Janela:MakeTab({
-    Name = "Painel",
-    Icon = "rbxassetid://11819163504",
-    PremiumOnly = false
+-- A - Jogos
+local TabA = Window:CreateTab("A - Jogos")
+AddScriptButton(TabA, "Anime Shadow", "https://raw.githubusercontent.com/oryth1/A--Jogos/refs/heads/main/Anime%20Shadow")
+
+-- B - Jogos
+local TabB = Window:CreateTab("B - Jogos")
+AddScriptButton(TabB, "Blox Fruits", "https://raw.githubusercontent.com/oryth1/B--Jogos/refs/heads/main/Blox%20Fruits")
+AddScriptButton(TabB, "Blue Lock Rivals", "https://raw.githubusercontent.com/oryth1/B--Jogos/refs/heads/main/Blue%20Lock%20Rivals")
+
+-- C - Jogos
+local TabC = Window:CreateTab("C - Jogos")
+AddScriptButton(TabC, "C - Exemplo", "https://example.com/c-jogos-script.lua")
+
+-- D - Jogos
+local TabD = Window:CreateTab("D - Jogos")
+AddScriptButton(TabD, "D - Exemplo", "https://example.com/d-jogos-script.lua")
+
+-- E - Jogos
+local TabE = Window:CreateTab("E - Jogos")
+AddScriptButton(TabE, "E - Exemplo", "https://example.com/e-jogos-script.lua")
+
+-- F - Jogos
+local TabF = Window:CreateTab("F - Jogos")
+AddScriptButton(TabF, "F - Exemplo", "https://example.com/f-jogos-script.lua")
+
+-- G - Jogos
+local TabG = Window:CreateTab("G - Jogos")
+AddScriptButton(TabG, "G - Exemplo", "https://example.com/g-jogos-script.lua")
+
+-- H - Jogos
+local TabH = Window:CreateTab("H - Jogos")
+AddScriptButton(TabH, "H - Exemplo", "https://example.com/h-jogos-script.lua")
+
+-- I - Jogos
+local TabI = Window:CreateTab("I - Jogos")
+AddScriptButton(TabI, "I - Exemplo", "https://example.com/i-jogos-script.lua")
+
+-- J - Jogos
+local TabJ = Window:CreateTab("J - Jogos")
+AddScriptButton(TabJ, "J - Exemplo", "https://example.com/j-jogos-script.lua")
+
+-- K - Jogos
+local TabK = Window:CreateTab("K - Jogos")
+AddScriptButton(TabK, "K - Exemplo", "https://example.com/k-jogos-script.lua")
+
+-- L - Jogos
+local TabL = Window:CreateTab("L - Jogos")
+AddScriptButton(TabL, "L - Exemplo", "https://example.com/l-jogos-script.lua")
+
+-- M - Jogos
+local TabM = Window:CreateTab("M - Jogos")
+AddScriptButton(TabM, "M - Exemplo", "https://example.com/m-jogos-script.lua")
+
+-- N - Jogos
+local TabN = Window:CreateTab("N - Jogos")
+AddScriptButton(TabN, "N - Exemplo", "https://example.com/n-jogos-script.lua")
+
+-- O - Jogos
+local TabO = Window:CreateTab("O - Jogos")
+AddScriptButton(TabO, "O - Exemplo", "https://example.com/o-jogos-script.lua")
+
+-- P - Jogos
+local TabP = Window:CreateTab("P - Jogos")
+AddScriptButton(TabP, "P - Exemplo", "https://example.com/p-jogos-script.lua")
+
+-- Q - Jogos
+local TabQ = Window:CreateTab("Q - Jogos")
+AddScriptButton(TabQ, "Q - Exemplo", "https://example.com/q-jogos-script.lua")
+
+-- R - Jogos
+local TabR = Window:CreateTab("R - Jogos")
+AddScriptButton(TabR, "R - Exemplo", "https://example.com/r-jogos-script.lua")
+
+-- S - Jogos
+local TabS = Window:CreateTab("S - Jogos")
+AddScriptButton(TabS, "S - Exemplo", "https://example.com/s-jogos-script.lua")
+
+-- T - Jogos
+local TabT = Window:CreateTab("T - Jogos")
+AddScriptButton(TabT, "T - Exemplo", "https://example.com/t-jogos-script.lua")
+
+-- U - Jogos
+local TabU = Window:CreateTab("U - Jogos")
+AddScriptButton(TabU, "U - Exemplo", "https://example.com/u-jogos-script.lua")
+
+-- V - Jogos
+local TabV = Window:CreateTab("V - Jogos")
+AddScriptButton(TabV, "V - Exemplo", "https://example.com/v-jogos-script.lua")
+
+-- W - Jogos
+local TabW = Window:CreateTab("W - Jogos")
+AddScriptButton(TabW, "W - Exemplo", "https://example.com/w-jogos-script.lua")
+
+-- X - Jogos
+local TabX = Window:CreateTab("X - Jogos")
+AddScriptButton(TabX, "X - Exemplo", "https://example.com/x-jogos-script.lua")
+
+-- Y - Jogos
+local TabY = Window:CreateTab("Y - Jogos")
+AddScriptButton(TabY, "Y - Exemplo", "https://example.com/y-jogos-script.lua")
+
+-- Z - Jogos
+local TabZ = Window:CreateTab("Z - Jogos")
+AddScriptButton(TabZ, "Z - Exemplo", "https://example.com/z-jogos-script.lua")
+
+-- Notificação inicial
+Rayfield:Notify({
+    Title = "Oryh Hub",
+    Content = "Bem-vindo ao Oryh Hub!",
+    Duration = 5
 })
+local Player = game.Players.LocalPlayer
+local ChatService = game:GetService("Chat")
 
--- Adicionar scripts (painel)
-AddScriptButton(PainelTab, "</> Aimbot Universal", "https://raw.githubusercontent.com/Yousuck780/troll-x/main/ahhhh")
-AddScriptButton(PainelTab, "</> Gráficos Realistas", "https://raw.githubusercontent.com/Flybobbb/robloxscripts/main/rtx.lua")
-AddScriptButton(PainelTab, "</> Infinite Yield", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
-AddScriptButton(PainelTab, "</> Remover Texturas", "https://rawscripts.net/raw/Universal-Script-antilag-15462")
-AddScriptButton(PainelTab, "</> Servidor Privado", "https://pastebin.com/raw/A4r1pHJY")
-AddScriptButton(PainelTab, "</> TP Tools", "https://pastebin.com/raw/7pQFmXUv")
-
--- Verificar o jogo atual e carregar as abas específicas
-local gameId = game.PlaceId
-
-if gameId == 2753915549 then -- Blox Fruits
-    local BloxFruits = Janela:MakeTab({
-        Name = "Blox Fruits",
-        Icon = "rbxassetid://11348590078",
-        PremiumOnly = false
-    })
-    BloxFruits:AddLabel("Última atualização em 17/12/24")
-    AddScriptButton(BloxFruits, "Alchemy Hub", "https://scripts.alchemyhub.xyz")
-    AddScriptButton(BloxFruits, "Speed X Hub", "https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua")
-    AddScriptButton(BloxFruits, "Kncryptc Hub", "https://raw.githubusercontent.com/3345-catsus/Kncrypt/refs/heads/main/sources/BloxFruit.lua")
-    AddScriptButton(BloxFruits, "HOHO Hub", "https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI")
-    AddScriptButton(BloxFruits, "Thunder Z Hub", "https://raw.githubusercontent.com/ThundarZ/Welcome/refs/heads/main/Main/Loader/AllGame.lua")
-    AddScriptButton(BloxFruits, "Redz Hub", "https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua")
-    AddScriptButton(BloxFruits, "Xero Hub", "https://apixerohub.x10.mx/main.luarmor")
-    AddScriptButton(BloxFruits, "Raito Hub", "https://raw.githubusercontent.com/Efe0626/RaitoHub/refs/heads/main/Script")
-    AddScriptButton(BloxFruits, "Banana Hub", "https://raw.githubusercontent.com/obiiyeuem/vthangsitink/main/BananaHub.lua")
-elseif gameId == 18668065416 then -- Blue Lock Rivals
-    local BlueLockRivals = Janela:MakeTab({
-        Name = "Blue Lock Rivals",
-        Icon = "rbxassetid://11348590078",
-        PremiumOnly = false
-    })
-    BlueLockRivals:AddLabel("Última atualização em 15/12/2024")
-    AddScriptButton(BlueLockRivals, "Legend HandlesYT Hub", "https://raw.githubusercontent.com/LOLking123456/Lock/refs/heads/main/Blue")
-    AddScriptButton(BlueLockRivals, "NS Hub", "https://raw.githubusercontent.com/OhhMyGehlee/fo/refs/heads/main/ot")
-    AddScriptButton(BlueLockRivals, "Tora Isme Hub", "https://raw.githubusercontent.com/ToraScript/Script/main/BlueLock")
-    AddScriptButton(BlueLockRivals, "Hub Sendox", "https://api.luarmor.net/files/v3/loaders/2f4e30b1511c2c07bee1be782460a57a.lua")
-    AddScriptButton(BlueLockRivals, "Flow Hub", "https://pastebin.com/raw/D1M2PLua")
-    AddScriptButton(BlueLockRivals, "Arraste-me Hub", "https://gist.githubusercontent.com/Yopapa7/8f9c43ed1a16ba4dbb5464e169154e65/raw/bdc9d6f650c829f470b6c4c05e66fbc5f7efc92e/gistfile1.txt")
-    AddScriptButton(BlueLockRivals, "Rinns Hub", "https://raw.githubusercontent.com/SkibidiCen/MainMenu/main/Code")
+-- Enviar mensagem no chat balão do jogador
+if Player.Character and Player.Character:FindFirstChild("Head") then
+    ChatService:Chat(Player.Character.Head, "1 - Procure a letra inicial do seu jogo entre A até Z\n2 - Pesquise o nome do jogo dentro da letra ou procure arrastando até achar.\n3 - Clique em cima do Jogo selecionado e espere os scripts dele carregar automaticamente.", Enum.ChatColor.White)
 end
-
--- Finalizar a inicialização
-OrionLib:Init()
