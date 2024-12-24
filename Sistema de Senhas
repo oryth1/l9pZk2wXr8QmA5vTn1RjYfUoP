@@ -1,133 +1,85 @@
-local OrionLib = loadstring(game:HttpGet('https://raw.githubusercontent.com/AlaaEmad23557/Neon-Hub-Lib/main/Lib'))() -- Carregar Orion
-local Player = game.Players.LocalPlayer -- Referência ao jogador local
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-local Window = OrionLib:MakeWindow({
-    Name = "Oryth Hub | Universal BR",
-    HidePremium = false,
-    SaveConfig = true,
-    ConfigFolder = "OrythHub",
-    IntroText = "Bem-vindo, " .. Player.Name
-}) -- Criar a janela principal
+local Window = Rayfield:CreateWindow({
+   Name = "Oryth Hub | Sistema senhas | Universal BR",
+   Icon = 89862499325112,
+   LoadingTitle = "Oryth Hub Universal BR ",
+   LoadingSubtitle = "Criador: Ethus Scripts",
+   Theme = "Dark",
 
--- Configuração
-getgenv().Senha = "123(@&@<er" -- Senha correta
-getgenv().SenhaInput = "" -- Entrada inicial da senha
-local SaveFileName = "OrythHub_SaveData"
-local SaveData = { LastAccess = 0 } -- Dados iniciais
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false,
 
--- Função para salvar os dados localmente
-local function SaveLocalData()
-    writefile(SaveFileName, game:GetService("HttpService"):JSONEncode(SaveData))
-end
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil,
+      FileName = "Oryth Hub Config"
+   },
 
--- Função para carregar os dados salvos
-local function LoadLocalData()
-    if isfile(SaveFileName) then
-        local success, data = pcall(function()
-            return game:GetService("HttpService"):JSONDecode(readfile(SaveFileName))
-        end)
-        if success and data.LastAccess then
-            SaveData = data
+   Discord = {
+      Enabled = true,
+      Invite = "UMvgqd9v9W",
+      RememberJoins = true
+   },
+
+   KeySystem = false -- Sistema de key desativado
+})
+
+-- Renomeando a aba para "Portal"
+local MainTab = Window:CreateTab("❖ Entrada", 89862499325112)
+
+-- Variável para armazenar a key inserida
+local enteredKey = ""
+
+-- Campo de texto para inserir a key
+local TextBox = MainTab:CreateInput({
+    Name = "Insira a senha.",
+    PlaceholderText = "Digite a senha aqui...",
+    RemoveTextAfterFocusLost = false,
+    Callback = function(text)
+        enteredKey = text
+    end,
+})
+
+-- Botão para confirmar a key e executar o Infinite Yield
+local ButtonConfirmKey = MainTab:CreateButton({
+    Name = "Confirmar",
+    Callback = function()
+        if enteredKey == "123(@&@<er" then -- Substitua "123(@&@<er" pela key correta
+            Rayfield:Notify({
+                Title = "Senha autorizada",
+                Content = "Carregando...",
+                Duration = 5,
+                Image = 89862499325112,
+            })
+            wait(2)
+            loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'), true))()
         else
-            SaveData = { LastAccess = 0 } -- Reverter para padrão se o arquivo estiver corrompido
-            SaveLocalData()
-        end
-    end
-end
-
--- Carregar os dados salvos
-LoadLocalData()
-
--- Verificar se a senha ainda é válida
-local function IsPasswordValid()
-    local currentTime = os.time()
-    local threeDaysInSeconds = 3 * 24 * 60 * 60
-    return currentTime - SaveData.LastAccess <= threeDaysInSeconds
-end
-
--- Função para carregar o script principal
-function MakeScriptHub()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/oryth1/oryth1/refs/heads/main/Painel%20Original'))() -- Substitua pelo script correto
-end
-
--- Lógica principal
-if IsPasswordValid() then
-    -- Senha ainda é válida, executar automaticamente
-    OrionLib:MakeNotification({
-        Name = "Carregando...",
-        Content = "Senha válida. Executando o hub automaticamente.",
-        Image = "rbxassetid://4483345998",
-        Time = 5
-    })
-    MakeScriptHub()
-else
-    -- Criar uma aba para o sistema de senha
-    local Tab = Window:MakeTab({
-        Name = "Painel",
-        Icon = "rbxassetid://4483345998",
-        PremiumOnly = false
-    })
-
-    -- Caixa de texto para inserir a senha
-    Tab:AddTextbox({
-        Name = "Inserir a senha",
-        Default = "", -- Caixa de texto limpa
-        TextDisappear = true,
-        Callback = function(Value)
-            getgenv().SenhaInput = Value
-        end
-    })
-
-    -- Botão para verificar a senha
-    Tab:AddButton({
-        Name = "Verificar Senha",
-        Callback = function()
-            OrionLib:MakeNotification({
-                Name = "Verificando Senha...",
-                Content = "Verificando a senha que você inseriu...",
-                Image = "rbxassetid://4483345998",
-                Time = 5
-            })
-            wait(2) -- Simulação de verificação
-
-            if getgenv().SenhaInput == getgenv().Senha then
-                SaveData.LastAccess = os.time() -- Salva a data/hora atual
-                SaveLocalData()
-                OrionLib:MakeNotification({
-                    Name = "Senha Correta!",
-                    Content = "A senha que você digitou está correta. Hub será executado automaticamente por 3 dias.",
-                    Image = "rbxassetid://4483345998",
-                    Time = 5
-                })
-                wait(1)
-                OrionLib:Destroy() -- Fecha o sistema de senha
-                wait(0.3)
-                MakeScriptHub() -- Carrega o script principal
-            else
-                OrionLib:MakeNotification({
-                    Name = "Senha Incorreta!",
-                    Content = "A senha que você digitou está incorreta.",
-                    Image = "rbxassetid://4483345998",
-                    Time = 5
-                })
-            end
-        end
-    })
-
-    -- Botão para copiar o link da senha
-    Tab:AddButton({
-        Name = "Copiar senha",
-        Callback = function()
-            setclipboard("https://direct-link.net/1268955/blue-lock-rivals-script") -- Copia o link para a área de transferência
-            OrionLib:MakeNotification({
-                Name = "Copiado!",
-                Content = "O link da senha foi copiado para sua área de transferência.",
-                Image = "rbxassetid://4483345998",
-                Time = 5
+            Rayfield:Notify({
+                Title = "Senha Inválida!",
+                Content = "Por favor, insira a senha correta.",
+                Duration = 5,
+                Image = 89862499325112,
             })
         end
-    })
+    end,
+})
 
-    -- Inicializar a interface
-    OrionLib:Init()
-end
+-- Novo botão para gerar e copiar o link da senha
+local ButtonGenerateLink = MainTab:CreateButton({
+    Name = "Gerar link",
+    Callback = function()
+        local link = "https://direct-link.net/1268955/blue-lock-rivals-script" -- Substitua com o link desejado
+        setclipboard(link)  -- Copia o link para a área de transferência
+        Rayfield:Notify({
+            Title = "Link copiado",
+            Content = "O linkvertise foi copiado para a área de transferência!",
+            Duration = 5,
+            Image = 89862499325112,
+        })
+        print("Link copiado para a área de transferência: " .. link)
+    end,
+})
+
+-- Mensagem final no console
+print("Oryth Hub carregado com sucesso!")
