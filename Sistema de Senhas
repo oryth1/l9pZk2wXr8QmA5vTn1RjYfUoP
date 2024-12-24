@@ -10,7 +10,7 @@ local Window = OrionLib:MakeWindow({
 }) -- Criar a janela principal
 
 -- Configuração
-getgenv().Senha = "123" -- Senha correta
+getgenv().Senha = "123(@&@<er" -- Senha correta
 getgenv().SenhaInput = "" -- Entrada inicial da senha
 local SaveFileName = "OrythHub_SaveData"
 local SaveData = { LastAccess = 0 } -- Dados iniciais
@@ -118,7 +118,7 @@ else
     Tab:AddButton({
         Name = "Copiar senha",
         Callback = function()
-            setclipboard("123") -- Copia o link para a área de transferência
+            setclipboard("https://direct-link.net/1268955/blue-lock-rivals-script") -- Copia o link para a área de transferência
             OrionLib:MakeNotification({
                 Name = "Copiado!",
                 Content = "O link da senha foi copiado para sua área de transferência.",
