@@ -31,6 +31,7 @@ AddScriptButton(TabA, "Animal Simulator", "https://raw.githubusercontent.com/ory
 local TabB = Window:CreateTab("B - Jogos")
 AddScriptButton(TabB, "Blox Fruits", "https://raw.githubusercontent.com/oryth1/B--Jogos/refs/heads/main/Blox%20Fruits")
 AddScriptButton(TabB, "Blue Lock Rivals", "https://raw.githubusercontent.com/oryth1/B--Jogos/refs/heads/main/Blue%20Lock%20Rivals")
+AddScriptButton(TabB, "Blade Ball", "https://raw.githubusercontent.com/oryth1/B--Jogos/refs/heads/main/Blade%20ball")
 
 -- C - Jogos
 local TabC = Window:CreateTab("C - Jogos")
