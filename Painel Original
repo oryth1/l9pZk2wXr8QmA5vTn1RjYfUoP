@@ -26,6 +26,7 @@ end
 local TabA = Window:CreateTab("A - Jogos")
 AddScriptButton(TabA, "Anime Shadow", "https://raw.githubusercontent.com/oryth1/A--Jogos/refs/heads/main/Anime%20Shadow")
 AddScriptButton(TabA, "Animal Simulator", "https://raw.githubusercontent.com/oryth1/A--Jogos/refs/heads/main/Animal%20simulator")
+AddScriptButton(TabA, "Anime Realms", "https://raw.githubusercontent.com/oryth1/A--Jogos/refs/heads/main/Anime%20Realms")
 
 -- B - Jogos
 local TabB = Window:CreateTab("B - Jogos")
@@ -140,5 +141,5 @@ local ChatService = game:GetService("Chat")
 
 -- Enviar mensagem no chat balão do jogador
 if Player.Character and Player.Character:FindFirstChild("Head") then
-    ChatService:Chat(Player.Character.Head, "1 - Procure a letra inicial do seu jogo entre A até Z\n2 - Pesquise o nome do jogo dentro da letra ou procure arrastando até achar.\n3 - Clique em cima do Jogo selecionado e espere os scripts dele carregar automaticamente.", Enum.ChatColor.White)
+    ChatService:Chat(Player.Character.Head, "Dica: Procure por a letra inicial do jogo que você precisa.", Enum.ChatColor.White)
 end
