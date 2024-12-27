@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "Oryth Hub | Sistema senhas | Universal BR",
+   Name = "Xethus Hub | Sistema senhas | Universal BR",
    Icon = 89862499325112,
    LoadingTitle = "Xethus Hub Universal BR ",
    LoadingSubtitle = "Criador: Ethus Scripts",
