@@ -45,7 +45,7 @@ local TextBox = MainTab:CreateInput({
 local ButtonConfirmKey = MainTab:CreateButton({
     Name = "Confirmar",
     Callback = function()
-        if enteredKey == "123(@&@<er" then -- Substitua "123(@&@<er" pela key correta
+        if enteredKey == "328" then -- Substitua "123(@&@<er" pela key correta
             Rayfield:Notify({
                 Title = "Senha autorizada",
                 Content = "Carregando...",
@@ -69,7 +69,7 @@ local ButtonConfirmKey = MainTab:CreateButton({
 local ButtonGenerateLink = MainTab:CreateButton({
     Name = "Gerar link",
     Callback = function()
-        local link = "https://direct-link.net/1268955/blue-lock-rivals-script" -- Substitua com o link desejado
+        local link = "https://rekonise.com/carregando-viwzr" -- Substitua com o link desejado
         setclipboard(link)  -- Copia o link para a área de transferência
         Rayfield:Notify({
             Title = "Link copiado",
