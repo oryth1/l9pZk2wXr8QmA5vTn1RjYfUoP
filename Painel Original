@@ -2,7 +2,7 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 -- Configuração da interface
 local Window = Rayfield:CreateWindow({
-    Name = "Oryh Hub | Universal BR | Versão 1.0", 
+    Name = "Xethus Hub | Universal BR | Versão 1.0", 
     LoadingTitle = "Carregando Oryh Hub",
     LoadingSubtitle = "Por favor, aguarde..."
 })
