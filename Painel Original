@@ -48,7 +48,7 @@ AddScriptButton(TabE, "E - Exemplo", "https://example.com/e-jogos-script.lua")
 
 -- F - Jogos
 local TabF = Window:CreateTab("F - Jogos")
-AddScriptButton(TabF, "F - Exemplo", "https://example.com/f-jogos-script.lua")
+AddScriptButton(TabF, "Fisch", "https://raw.githubusercontent.com/oryth1/F--Jogos/refs/heads/main/Fisch")
 
 -- G - Jogos
 local TabG = Window:CreateTab("G - Jogos")
