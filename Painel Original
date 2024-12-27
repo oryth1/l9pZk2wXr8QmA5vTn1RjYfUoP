@@ -3,7 +3,7 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 -- Configuração da interface
 local Window = Rayfield:CreateWindow({
     Name = "Xethus Hub | Universal BR | Blackn444 🤣", 
-    LoadingTitle = "Carregando Oryh Hub",
+    LoadingTitle = "Carregando Xethus Hub",
     LoadingSubtitle = "Por favor, aguarde..."
 })
 
@@ -14,7 +14,7 @@ local function AddScriptButton(tab, name, url)
         Callback = function()
             loadstring(game:HttpGet(url))()
             Rayfield:Notify({
-                Title = "Oryh Hub",
+                Title = "Xethus Hub",
                 Content = name .. " carregado com sucesso!",
                 Duration = 5
             })
@@ -133,7 +133,7 @@ AddScriptButton(TabZ, "Z - Exemplo", "https://example.com/z-jogos-script.lua")
 -- Notificação inicial
 Rayfield:Notify({
     Title = "Oryh Hub",
-    Content = "Bem-vindo ao Oryh Hub!",
+    Content = "Bem-vindo ao Xethus Hub!",
     Duration = 5
 })
 local Player = game.Players.LocalPlayer
