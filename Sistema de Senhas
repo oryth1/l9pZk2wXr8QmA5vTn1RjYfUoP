@@ -3,7 +3,7 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
    Name = "Xethus Hub | Sistema senhas | Universal BR",
    Icon = 89862499325112,
-   LoadingTitle = "Xethus Hub Universal BR ",
+   LoadingTitle = "Xethus Hub Universal BR",
    LoadingSubtitle = "Criador: Ethus Scripts",
    Theme = "Dark",
 
@@ -25,7 +25,7 @@ local Window = Rayfield:CreateWindow({
    KeySystem = false -- Sistema de key desativado
 })
 
--- Renomeando a aba para "Portal"
+-- Aba principal
 local MainTab = Window:CreateTab("❖ Entrada", 89862499325112)
 
 -- Variável para armazenar a key inserida
@@ -41,11 +41,11 @@ local TextBox = MainTab:CreateInput({
     end,
 })
 
--- Botão para confirmar a key e executar o Infinite Yield
+-- Botão para confirmar a key e executar o script
 local ButtonConfirmKey = MainTab:CreateButton({
     Name = "Confirmar",
     Callback = function()
-        if enteredKey == "328" then -- Substitua "123(@&@<er" pela key correta
+        if enteredKey == "328" then -- Substitua "328" pela senha correta
             Rayfield:Notify({
                 Title = "Senha autorizada",
                 Content = "Carregando...",
@@ -65,17 +65,52 @@ local ButtonConfirmKey = MainTab:CreateButton({
     end,
 })
 
--- Novo botão para gerar e copiar o link da senha
-local ButtonGenerateLink = MainTab:CreateButton({
+-- Botão para gerar e copiar o link da senha
+local ButtonGenerateLinkMain = MainTab:CreateButton({
     Name = "Gerar link",
     Callback = function()
         local link = "https://rekonise.com/carregando-viwzr" -- Substitua com o link desejado
-        setclipboard(link)  -- Copia o link para a área de transferência
+        setclipboard(link) -- Copia o link para a área de transferência
         Rayfield:Notify({
             Title = "Link copiado",
             Content = "O linkvertise foi copiado para a área de transferência!",
             Duration = 5,
             Image = 89862499325112,
+        })
+        print("Link copiado para a área de transferência: " .. link)
+    end,
+})
+
+-- Aba do Discord
+local DiscordTab = Window:CreateTab("Discord")
+
+-- Função para criar botões que executam scripts
+local function AddScriptButton(tab, name, url)
+    tab:CreateButton({
+        Name = name,
+        Callback = function()
+            loadstring(game:HttpGet(url))()
+            Rayfield:Notify({
+                Title = "Script Carregado",
+                Content = name .. " carregado com sucesso!",
+                Duration = 5
+            })
+        end
+    })
+end
+
+-- Exemplo de script na aba Discor
+
+-- Botão para copiar o link do Discord
+local ButtonGenerateLinkDiscord = DiscordTab:CreateButton({
+    Name = "Discord Community",
+    Callback = function()
+        local link = "https://discord.gg/UTchgb5sY4" -- Substitua com o link desejado
+        setclipboard(link) -- Copia o link para a área de transferência
+        Rayfield:Notify({
+            Title = "Link copiado",
+            Content = "O link do Discord foi copiado para sua área de transferência!",
+            Duration = 5,
         })
         print("Link copiado para a área de transferência: " .. link)
     end,
