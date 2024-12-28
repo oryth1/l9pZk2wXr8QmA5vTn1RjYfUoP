@@ -82,7 +82,7 @@ local ButtonGenerateLinkMain = MainTab:CreateButton({
 })
 
 -- Aba do Discord
-local DiscordTab = Window:CreateTab("Discord")
+local DiscordTab = Window:CreateTab("❖ Discord")
 
 -- Função para criar botões que executam scripts
 local function AddScriptButton(tab, name, url)
