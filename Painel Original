@@ -27,6 +27,7 @@ local TabA = Window:CreateTab("A - Jogos")
 AddScriptButton(TabA, "Anime Shadow", "https://raw.githubusercontent.com/oryth1/A--Jogos/refs/heads/main/Anime%20Shadow")
 AddScriptButton(TabA, "Animal Simulator", "https://raw.githubusercontent.com/oryth1/A--Jogos/refs/heads/main/Animal%20simulator")
 AddScriptButton(TabA, "Anime Realms", "https://raw.githubusercontent.com/oryth1/A--Jogos/refs/heads/main/Anime%20Realms")
+AddScriptButton(TabA, "Anime Adventures", "https://raw.githubusercontent.com/oryth1/A--Jogos/refs/heads/main/Anime%20Adventures")
 
 -- B - Jogos
 local TabB = Window:CreateTab("B - Jogos")
