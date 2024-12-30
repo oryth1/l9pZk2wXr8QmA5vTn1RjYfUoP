@@ -2,8 +2,6 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 
 local Window = OrionLib:MakeWindow({Name = "Xethus Hub | Sistema | Universal BR ", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
-
-
 local Tab = Window:MakeTab({
     Name = "Entrada",
     Icon = "rbxassetid://4483345998",
@@ -132,5 +130,60 @@ SocialTab:AddButton({
     Name = "Executores Atualizados",
     Callback = function()
         setclipboard("https://beacons.ai/ethus.oi")
+    end
+})
+
+-- Cria a aba "Admins"
+local AdminTab = Window:MakeTab({
+    Name = "Admins",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+-- Função para adicionar um botão de script
+local function AddScriptButton(tab, name, url)
+    tab:AddButton({
+        Name = name,
+        Callback = function()
+            loadstring(game:HttpGet(url, true))()
+        end
+    })
+end
+
+-- Adiciona os botões de scripts na aba "Admins"
+AddScriptButton(AdminTab, "</> Graficos Realistas", "https://raw.githubusercontent.com/Flybobbb/robloxscripts/main/rtx.lua")
+AddScriptButton(AdminTab, "</> Infinite Yield", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
+AddScriptButton(AdminTab, "</> Retirar Texturas", "https://rawscripts.net/raw/Universal-Script-antilag-15462")
+AddScriptButton(AdminTab, "</> Servidor Privado", "https://pastebin.com/raw/A4r1pHJY")
+AddScriptButton(AdminTab, "</> TP Tools", "https://pastebin.com/raw/7pQFmXUv")
+
+-- Função para ativar o Anti-Afk
+local function enableAntiAfk()
+    game:GetService("Players").LocalPlayer.Idled:connect(function()
+        game:GetService("VirtualUser"):ClickButton2(Vector2.new())
+    end)
+end
+
+-- Toggle para ativar/desativar Anti-Afk
+AdminTab:AddToggle({
+    Name = "</> Anti Afk",
+    Default = false,
+    Callback = function(state)
+        if state then
+            enableAntiAfk()
+            OrionLib:MakeNotification({
+                Name = "Anti-Afk Ativado",
+                Content = "Você não será desconectado por inatividade.",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        else
+            OrionLib:MakeNotification({
+                Name = "Anti-Afk Desativado",
+                Content = "Você pode ser desconectado por inatividade.",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
     end
 })
