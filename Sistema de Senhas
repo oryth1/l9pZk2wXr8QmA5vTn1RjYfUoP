@@ -1,120 +1,136 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-local Window = Rayfield:CreateWindow({
-   Name = "Xethus Hub | Sistema senhas | Universal BR",
-   Icon = 89862499325112,
-   LoadingTitle = "Xethus Hub Universal BR",
-   LoadingSubtitle = "Criador: Ethus Scripts",
-   Theme = "Dark",
+local Window = OrionLib:MakeWindow({Name = "Xethus Hub | Sistema | Universal BR ", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
-   DisableRayfieldPrompts = false,
-   DisableBuildWarnings = false,
 
-   ConfigurationSaving = {
-      Enabled = false,
-      FolderName = nil,
-      FileName = "Oryth Hub Config"
-   },
 
-   Discord = {
-      Enabled = true,
-      Invite = "UMvgqd9v9W",
-      RememberJoins = true
-   },
-
-   KeySystem = false -- Sistema de key desativado
+local Tab = Window:MakeTab({
+    Name = "Entrada",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
 })
 
--- Aba principal
-local MainTab = Window:CreateTab("❖ Entrada", 89862499325112)
+-- Defina a senha válida
+local validKey = "Aej96vr4RsG"
 
--- Variável para armazenar a key inserida
-local enteredKey = ""
+-- Nome do arquivo para salvar a senha
+local fileName = "Delta.txt"
 
--- Campo de texto para inserir a key
-local TextBox = MainTab:CreateInput({
-    Name = "Insira a senha.",
-    PlaceholderText = "Digite a senha aqui...",
-    RemoveTextAfterFocusLost = false,
-    Callback = function(text)
-        enteredKey = text
-    end,
-})
-
--- Botão para confirmar a key e executar o script
-local ButtonConfirmKey = MainTab:CreateButton({
-    Name = "Confirmar",
-    Callback = function()
-        if enteredKey == "328" then -- Substitua "328" pela senha correta
-            Rayfield:Notify({
-                Title = "Senha autorizada",
-                Content = "Carregando...",
-                Duration = 5,
-                Image = 89862499325112,
-            })
-            wait(2)
-            loadstring(game:HttpGet(('https://raw.githubusercontent.com/oryth1/oryth1/refs/heads/main/Painel%20Original'), true))()
-        else
-            Rayfield:Notify({
-                Title = "Senha Inválida!",
-                Content = "Por favor, insira a senha correta.",
-                Duration = 5,
-                Image = 89862499325112,
-            })
-        end
-    end,
-})
-
--- Botão para gerar e copiar o link da senha
-local ButtonGenerateLinkMain = MainTab:CreateButton({
-    Name = "Gerar link",
-    Callback = function()
-        local link = "https://rekonise.com/carregando-viwzr" -- Substitua com o link desejado
-        setclipboard(link) -- Copia o link para a área de transferência
-        Rayfield:Notify({
-            Title = "Link copiado",
-            Content = "O linkvertise foi copiado para a área de transferência!",
-            Duration = 5,
-            Image = 89862499325112,
-        })
-        print("Link copiado para a área de transferência: " .. link)
-    end,
-})
-
--- Aba do Discord
-local DiscordTab = Window:CreateTab("❖ Discord")
-
--- Função para criar botões que executam scripts
-local function AddScriptButton(tab, name, url)
-    tab:CreateButton({
-        Name = name,
-        Callback = function()
-            loadstring(game:HttpGet(url))()
-            Rayfield:Notify({
-                Title = "Script Carregado",
-                Content = name .. " carregado com sucesso!",
-                Duration = 5
-            })
-        end
-    })
+-- Função para salvar a senha em um arquivo
+local function saveKey(key)
+    writefile(fileName, key)
 end
 
--- Exemplo de script na aba Discor
+-- Função para carregar a senha salva
+local function loadSavedKey()
+    if isfile(fileName) then
+        return readfile(fileName)
+    else
+        return ""
+    end
+end
 
--- Botão para copiar o link do Discord
-local ButtonGenerateLinkDiscord = DiscordTab:CreateButton({
-    Name = "Discord Community",
-    Callback = function()
-        local link = "https://discord.gg/UTchgb5sY4" -- Substitua com o link desejado
-        setclipboard(link) -- Copia o link para a área de transferência
-        Rayfield:Notify({
-            Title = "Link copiado",
-            Content = "O link do Discord foi copiado para sua área de transferência!",
-            Duration = 5,
-        })
-        print("Link copiado para a área de transferência: " .. link)
-    end,
+-- Carrega a senha salva do arquivo
+_G.SavedKey = loadSavedKey()
+
+-- Verifique automaticamente se a senha salva é válida ao carregar o script
+if _G.SavedKey == validKey then
+    OrionLib:MakeNotification({
+        Name = "Senha Salva",
+        Content = "Executando comando automaticamente...",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+    -- Executa automaticamente o comando após validação bem-sucedida
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/oryth1/oryth1/refs/heads/main/Painel%20Original'), true))()
+    
+    -- Destrói o OrionLib após a execução do loadstring
+    OrionLib:Destroy()
+end
+
+-- Caixa de texto para inserir a senha
+Tab:AddTextbox({
+    Name = "Ensira a Senha:",
+    Default = _G.SavedKey, -- Carrega a senha salva na caixa de texto
+    TextDisappear = true,
+    Callback = function(value)
+        _G.InputKey = value
+    end
 })
 
--- Mensagem final no console
-print("Oryth Hub carregado com sucesso!")
+-- Botão para confirmar a senha manualmente
+Tab:AddButton({
+    Name = "Confirmar Senha",
+    Callback = function()
+        if _G.InputKey == validKey then
+            -- Salva a senha validada no arquivo para a próxima execução
+            saveKey(_G.InputKey)
+            OrionLib:MakeNotification({
+                Name = "Senha Autorizada!",
+                Content = "Obrigado. Executando comando...",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+            -- Executa o comando após validação bem-sucedida
+            loadstring(game:HttpGet(('https://raw.githubusercontent.com/oryth1/oryth1/refs/heads/main/Painel%20Original'), true))()
+            
+            -- Destrói o OrionLib após a execução do loadstring
+            OrionLib:Destroy()
+        else
+            OrionLib:MakeNotification({
+                Name = "Senha errada!",
+                Content = "Nao seja preguiçoso.",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    end
+})
+
+-- Botão para gerar o link da senha
+Tab:AddButton({
+    Name = "Gerar Link",
+    Callback = function()
+        -- Copia o link para a área de transferência
+        setclipboard("https://rekonise.com/xethus-hub-or-3-dias-or-lessgreater-mdzxb")
+    end
+})
+
+-- Adiciona uma nova aba chamada "Redes Sociais"
+local SocialTab = Window:MakeTab({
+    Name = "Redes Sociais",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+-- Botão para copiar o link do Discord
+SocialTab:AddButton({
+    Name = "Discord Community",
+    Callback = function()
+        setclipboard("https://discord.gg/UTchgb5sY4")
+    end
+})
+
+-- Botão para copiar o link do Instagram
+SocialTab:AddButton({
+    Name = "Instagram para Contato",
+    Callback = function()
+        setclipboard("https://www.instagram.com/hidleywilliam")
+    end
+})
+
+-- Botão para copiar o link do Canal no YouTube
+SocialTab:AddButton({
+    Name = "Canal no YouTube",
+    Callback = function()
+        setclipboard("https://www.youtube.com/channel/UCX2N85bLl1JwWsb9wQ1NxHg")
+    end
+})
+
+-- Botão para copiar o link de Executores Atualizados
+SocialTab:AddButton({
+    Name = "Executores Atualizados",
+    Callback = function()
+        setclipboard("https://beacons.ai/ethus.oi")
+    end
+})
