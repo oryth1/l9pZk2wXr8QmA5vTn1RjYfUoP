@@ -1,12 +1,18 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-local Window = OrionLib:MakeWindow({Name = "Xethus Hub | Executor| Universal BR ", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
-
-local Tab = Window:MakeTab({
-    Name = "Entrada",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
+local Window = Rayfield:CreateWindow({
+    Name = "Xethus Hub | Executor | Universal BR",
+    LoadingTitle = "Carregando Xethus Hub...",
+    LoadingSubtitle = "Criador: Ethus Scripts",
+    ConfigurationSaving = {
+        Enabled = true,
+        FolderName = "XethusHub", -- Nome da pasta para salvar as configurações
+        FileName = "Config"
+    },
+    KeySystem = false -- Mudar para `true` se quiser um sistema de chave integrado
 })
+
+local Tab = Window:CreateTab("Entrada", 4483345998)
 
 -- Defina a senha válida
 local validKey = "Aej96vr4RsG"
@@ -31,118 +37,98 @@ end
 -- Carrega a senha salva do arquivo
 _G.SavedKey = loadSavedKey()
 
--- Verifique automaticamente se a senha salva é válida ao carregar o script
+-- Verifica automaticamente se a senha salva é válida ao carregar o script
 if _G.SavedKey == validKey then
-    OrionLib:MakeNotification({
-        Name = "Senha Salva",
-        Content = "Executando comando automaticamente...",
-        Image = "rbxassetid://4483345998",
-        Time = 5
+    Rayfield:Notify({
+        Title = "Senha Salva",
+        Content = "Executando automaticamente...",
+        Duration = 5,
+        Image = 4483345998
     })
-    -- Executa automaticamente o comando após validação bem-sucedida
-    loadstring(game:HttpGet(('https://raw.githubusercontent.com/oryth1/oryth1/refs/heads/main/Painel%20Original'), true))()
-    
-    -- Destrói o OrionLib após a execução do loadstring
-    OrionLib:Destroy()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/oryth1/oryth1/refs/heads/main/Painel%20Original", true))()
+    Rayfield:Destroy()
 end
 
 -- Caixa de texto para inserir a senha
-Tab:AddTextbox({
-    Name = "Ensira a Senha:",
-    Default = _G.SavedKey, -- Carrega a senha salva na caixa de texto
-    TextDisappear = true,
+Tab:CreateInput({
+    Name = "Insira a Senha:",
+    PlaceholderText = "Digite aqui...",
+    RemoveTextAfterFocusLost = true,
+    Default = _G.SavedKey,
     Callback = function(value)
         _G.InputKey = value
     end
 })
 
 -- Botão para confirmar a senha manualmente
-Tab:AddButton({
+Tab:CreateButton({
     Name = "Confirmar Senha",
     Callback = function()
         if _G.InputKey == validKey then
-            -- Salva a senha validada no arquivo para a próxima execução
             saveKey(_G.InputKey)
-            OrionLib:MakeNotification({
-                Name = "Senha Autorizada!",
+            Rayfield:Notify({
+                Title = "Senha Autorizada!",
                 Content = "Obrigado. Executando comando...",
-                Image = "rbxassetid://4483345998",
-                Time = 5
+                Duration = 5,
+                Image = 4483345998
             })
-            -- Executa o comando após validação bem-sucedida
-            loadstring(game:HttpGet(('https://raw.githubusercontent.com/oryth1/oryth1/refs/heads/main/Painel%20Original'), true))()
-            
-            -- Destrói o OrionLib após a execução do loadstring
-            OrionLib:Destroy()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/oryth1/oryth1/refs/heads/main/Painel%20Original", true))()
+            Rayfield:Destroy()
         else
-            OrionLib:MakeNotification({
-                Name = "Senha errada!",
-                Content = "Nao seja preguiçoso.",
-                Image = "rbxassetid://4483345998",
-                Time = 5
+            Rayfield:Notify({
+                Title = "Senha Errada!",
+                Content = "Não seja preguiçoso.",
+                Duration = 5,
+                Image = 4483345998
             })
         end
     end
 })
 
 -- Botão para gerar o link da senha
-Tab:AddButton({
+Tab:CreateButton({
     Name = "Gerar Link",
     Callback = function()
-        -- Copia o link para a área de transferência
         setclipboard("https://rekonise.com/xethus-hub-or-3-dias-or-lessgreater-mdzxb")
     end
 })
 
--- Adiciona uma nova aba chamada "Redes Sociais"
-local SocialTab = Window:MakeTab({
-    Name = "Redes Sociais",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
+-- Aba de Redes Sociais
+local SocialTab = Window:CreateTab("Redes Sociais", 4483345998)
 
--- Botão para copiar o link do Discord
-SocialTab:AddButton({
+SocialTab:CreateButton({
     Name = "Discord Community",
     Callback = function()
         setclipboard("https://discord.gg/UTchgb5sY4")
     end
 })
 
--- Botão para copiar o link do Instagram
-SocialTab:AddButton({
+SocialTab:CreateButton({
     Name = "Instagram para Contato",
     Callback = function()
         setclipboard("https://www.instagram.com/hidleywilliam")
     end
 })
 
--- Botão para copiar o link do Canal no YouTube
-SocialTab:AddButton({
+SocialTab:CreateButton({
     Name = "Canal no YouTube",
     Callback = function()
         setclipboard("https://www.youtube.com/channel/UCX2N85bLl1JwWsb9wQ1NxHg")
     end
 })
 
--- Botão para copiar o link de Executores Atualizados
-SocialTab:AddButton({
+SocialTab:CreateButton({
     Name = "Executores Atualizados",
     Callback = function()
         setclipboard("https://beacons.ai/ethus.oi")
     end
 })
 
--- Cria a aba "Admins"
-local AdminTab = Window:MakeTab({
-    Name = "Admins",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
+-- Aba de Admins
+local AdminTab = Window:CreateTab("Admins", 4483345998)
 
--- Função para adicionar um botão de script
 local function AddScriptButton(tab, name, url)
-    tab:AddButton({
+    tab:CreateButton({
         Name = name,
         Callback = function()
             loadstring(game:HttpGet(url, true))()
@@ -150,7 +136,6 @@ local function AddScriptButton(tab, name, url)
     })
 end
 
--- Adiciona os botões de scripts na aba "Admins"
 AddScriptButton(AdminTab, "</> Graficos Realistas", "https://raw.githubusercontent.com/Flybobbb/robloxscripts/main/rtx.lua")
 AddScriptButton(AdminTab, "</> Infinite Yield", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
 AddScriptButton(AdminTab, "</> Retirar Texturas", "https://rawscripts.net/raw/Universal-Script-antilag-15462")
@@ -164,25 +149,24 @@ local function enableAntiAfk()
     end)
 end
 
--- Toggle para ativar/desativar Anti-Afk
-AdminTab:AddToggle({
+AdminTab:CreateToggle({
     Name = "</> Anti Afk",
-    Default = false,
+    CurrentValue = false,
     Callback = function(state)
         if state then
             enableAntiAfk()
-            OrionLib:MakeNotification({
-                Name = "Anti-Afk Ativado",
+            Rayfield:Notify({
+                Title = "Anti-Afk Ativado",
                 Content = "Você não será desconectado por inatividade.",
-                Image = "rbxassetid://4483345998",
-                Time = 5
+                Duration = 5,
+                Image = 4483345998
             })
         else
-            OrionLib:MakeNotification({
-                Name = "Anti-Afk Desativado",
+            Rayfield:Notify({
+                Title = "Anti-Afk Desativado",
                 Content = "Você pode ser desconectado por inatividade.",
-                Image = "rbxassetid://4483345998",
-                Time = 5
+                Duration = 5,
+                Image = 4483345998
             })
         end
     end
