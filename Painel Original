@@ -70,7 +70,7 @@ AddScriptButton(TabJ, "Jujutsu Infinite", "https://raw.githubusercontent.com/ory
 
 -- K - Jogos
 local TabK = Window:CreateTab("K - Jogos")
-AddScriptButton(TabK, "K - Exemplo", "https://example.com/k-jogos-script.lua")
+AddScriptButton(TabK, "K - Exemplo", "")
 
 -- L - Jogos
 local TabL = Window:CreateTab("L - Jogos")
