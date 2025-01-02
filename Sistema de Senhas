@@ -2,7 +2,7 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
     Name = "Xethus Hub | Executor | Universal BR",
-    LoadingTitle = "Carregando Xethus Hub...",
+    LoadingTitle = "Carregando Xethus Hub",
     LoadingSubtitle = "Criador: Ethus Scripts",
     ConfigurationSaving = {
         Enabled = true,
@@ -15,10 +15,10 @@ local Window = Rayfield:CreateWindow({
 local Tab = Window:CreateTab("Entrada", 4483345998)
 
 -- Defina a senha válida
-local validKey = "Aej96vr4RsG"
+local validKey = "7c{4Bwp7(jrK"
 
 -- Nome do arquivo para salvar a senha
-local fileName = "Delta.txt"
+local fileName = "7.txt"
 
 -- Função para salvar a senha em um arquivo
 local function saveKey(key)
@@ -41,7 +41,7 @@ _G.SavedKey = loadSavedKey()
 if _G.SavedKey == validKey then
     Rayfield:Notify({
         Title = "Senha Salva",
-        Content = "Executando automaticamente...",
+        Content = "Executando comando automaticamente...",
         Duration = 5,
         Image = 4483345998
     })
@@ -89,7 +89,7 @@ Tab:CreateButton({
 Tab:CreateButton({
     Name = "Gerar Link",
     Callback = function()
-        setclipboard("https://rekonise.com/xethus-hub-or-3-dias-or-lessgreater-mdzxb")
+        setclipboard("https://rekonise.com/xethus-hub-or-7-dias-266b6")
     end
 })
 
@@ -135,12 +135,13 @@ local function AddScriptButton(tab, name, url)
         end
     })
 end
-
+AddScriptButton(AdminTab, "</> Aimbot", "https://pastebin.com/raw/60DBxHqQ")
 AddScriptButton(AdminTab, "</> Graficos Realistas", "https://raw.githubusercontent.com/Flybobbb/robloxscripts/main/rtx.lua")
 AddScriptButton(AdminTab, "</> Infinite Yield", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
 AddScriptButton(AdminTab, "</> Retirar Texturas", "https://rawscripts.net/raw/Universal-Script-antilag-15462")
 AddScriptButton(AdminTab, "</> Servidor Privado", "https://pastebin.com/raw/A4r1pHJY")
-AddScriptButton(AdminTab, "</> TP Tools", "https://pastebin.com/raw/7pQFmXUv")
+AddScriptButton(AdminTab, "</> TP Tools", "https://pastebin.com/raw/qysTtrJD")
+
 
 -- Função para ativar o Anti-Afk
 local function enableAntiAfk()
@@ -150,7 +151,7 @@ local function enableAntiAfk()
 end
 
 AdminTab:CreateToggle({
-    Name = "</> Anti Afk",
+    Name = "</> Anti-Afk",
     CurrentValue = false,
     Callback = function(state)
         if state then
