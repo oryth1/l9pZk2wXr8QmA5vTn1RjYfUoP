@@ -104,7 +104,7 @@ local function AddScriptButton(tab, name, url)
         end
     })
 end
-AddScriptButton(AdminTab, "</> Aimbot", "https://pastebin.com/raw/60DBxHqQ")
+AddScriptButton(AdminTab, "</> Aimbot", "https://raw.githubusercontent.com/Yousuck780/troll-x/main/ahhhh")
 AddScriptButton(AdminTab, "</> Graficos Realistas", "https://raw.githubusercontent.com/Flybobbb/robloxscripts/main/rtx.lua")
 AddScriptButton(AdminTab, "</> Infinite Yield", "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")
 AddScriptButton(AdminTab, "</> Retirar Texturas", "https://rawscripts.net/raw/Universal-Script-antilag-15462")
