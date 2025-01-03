@@ -93,37 +93,6 @@ Tab:CreateButton({
     end
 })
 
--- Aba de Redes Sociais
-local SocialTab = Window:CreateTab("Redes Sociais", 4483345998)
-
-SocialTab:CreateButton({
-    Name = "Discord Community",
-    Callback = function()
-        setclipboard("https://discord.gg/UTchgb5sY4")
-    end
-})
-
-SocialTab:CreateButton({
-    Name = "Instagram para Contato",
-    Callback = function()
-        setclipboard("https://www.instagram.com/hidleywilliam")
-    end
-})
-
-SocialTab:CreateButton({
-    Name = "Canal no YouTube",
-    Callback = function()
-        setclipboard("https://www.youtube.com/channel/UCX2N85bLl1JwWsb9wQ1NxHg")
-    end
-})
-
-SocialTab:CreateButton({
-    Name = "Executores Atualizados",
-    Callback = function()
-        setclipboard("https://beacons.ai/ethus.oi")
-    end
-})
-
 -- Aba de Admins
 local AdminTab = Window:CreateTab("Admins", 4483345998)
 
@@ -141,7 +110,6 @@ AddScriptButton(AdminTab, "</> Infinite Yield", "https://raw.githubusercontent.c
 AddScriptButton(AdminTab, "</> Retirar Texturas", "https://rawscripts.net/raw/Universal-Script-antilag-15462")
 AddScriptButton(AdminTab, "</> Servidor Privado", "https://pastebin.com/raw/A4r1pHJY")
 AddScriptButton(AdminTab, "</> TP Tools", "https://pastebin.com/raw/qysTtrJD")
-
 
 -- Função para ativar o Anti-Afk
 local function enableAntiAfk()
@@ -170,5 +138,36 @@ AdminTab:CreateToggle({
                 Image = 4483345998
             })
         end
+    end
+})
+
+-- Aba de Redes Sociais
+local SocialTab = Window:CreateTab("Redes Sociais", 4483345998)
+
+SocialTab:CreateButton({
+    Name = "Discord Community",
+    Callback = function()
+        setclipboard("https://discord.gg/UTchgb5sY4")
+    end
+})
+
+SocialTab:CreateButton({
+    Name = "Instagram para Contato",
+    Callback = function()
+        setclipboard("https://www.instagram.com/hidleywilliam")
+    end
+})
+
+SocialTab:CreateButton({
+    Name = "Canal no YouTube",
+    Callback = function()
+        setclipboard("https://www.youtube.com/channel/UCX2N85bLl1JwWsb9wQ1NxHg")
+    end
+})
+
+SocialTab:CreateButton({
+    Name = "Executores Atualizados",
+    Callback = function()
+        setclipboard("https://beacons.ai/ethus.oi")
     end
 })
